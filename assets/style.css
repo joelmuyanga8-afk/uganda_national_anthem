@@ -1,0 +1,131 @@
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+nav {
+    background-color: rgb(255, 255, 38);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width:600px) {
+    .name {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .index-container {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 600px) {
+    .index-container {
+        margin-top: 60px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.btn {
+    background-color: rgb(255, 255, 38);
+}
+
+.btn:hover {
+    background-color: rgb(255, 255, 38);
+}
+
+.cont-abt-song {
+    padding: 40px;
+    text-align: center;
+}
+
+.main-lyrics {
+    padding-bottom: 50px;
+}
+
+.main-sing {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+#lyrics-container {
+    overflow-y: auto;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.btns-sing {
+    position: fixed;
+    margin-left: 80%;
+    margin-top: 30%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    .btns-sing {
+        position: fixed;
+        margin-left: 80%;
+        margin-top: 114%;
+    }
+}
+
+.btns-sing button {
+    background-color: yellow;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+    box-shadow: 0 4px 8px black;
+    /* font-weight: 500; */
+}
+
+.btns-sing button:hover {
+    background-color: red;
+    color: white;
+}
+
+
+.line {
+    font-size: 18px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.active {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: red;
+    border-radius: 20px;
+}
+
+footer {
+    margin-top: 0;
+    text-align: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer p {
+    margin: 1px 1px;
+}
