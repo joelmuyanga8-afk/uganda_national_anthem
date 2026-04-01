@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Anthem</title>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark py-0">
+            <div class="container-fluid">
+                <a class="navbar-brand text-black" href="index.html">
+                    <img src="assets/images/logo (1).png" class="logo"><b class="name">Uganda National Anthem</b></a>
+                <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span></button>
+                <div class="offcanvas offcanvas-bottom " id="navbarContent">
+                    <div class="offcanvas-header">
+                        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item d-none d-md-none d-lg-block">
+                                <a class="nav-link text-black" href="about_us.html">About Us</a>
+                            </li>
+                            <li class="nav-item d-none d-md-none d-lg-block">
+                                <a class="nav-link text-black"
+                                    href="https://sites.google.com/view/uganda-national-anthem-app">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item d-block d-md-block d-lg-none">
+                                <a class="nav-link text-black" href="about_us.html">
+                                    <img src="assets/images/abt.png" width="20px"> About Us</a>
+                            </li>
+                            <li class="nav-item d-block d-md-block d-lg-none">
+                                <a class="nav-link text-black"
+                                    href="https://sites.google.com/view/uganda-national-anthem-app">
+                                    <img src="assets/images/prvcy.png" width="20px"> Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main style="display: flex; flex-direction: row;">
+        <img src="assets/images/ug_flag2.png" class="d-none d-md-none d-lg-block" width="200px"
+            style="position: absolute; margin-top: 40px; margin-left: 220px; opacity: 0.75;">
+        <div class="container index-container">
+            <img src="assets/images/ug_flag2.png" class="d-block d-md-block d-lg-none" width="300px"
+                style="position: absolute; margin-top: 70px; opacity: 0.3;">
+            <div style="z-index: 1000;" class="index-container">
+                <button id="playBtn" class="btn mb-4">
+                    <img id="icon" src="assets/images/Play.png" width="20px"> </button>
+                <audio id="audio" src="assets/audio/Uganda National Anthem.mp3"></audio>
+                <button class="btn mb-4 fw-bold" type="button"><a href="lyrics.html"
+                        style="z-index: 1000;">Lyrics</a></button>
+                <button class="btn mb-4 fw-bold" type="button"><a href="sing_along.html">Sing
+                        Along</a></button>
+                <button class="btn mb-4 fw-bold" type="button"><a href="aboutthe_song.html">About the
+                        Song</a></button>
+            </div>
+        </div>
+        <img src="assets/images/ug_flag2.png" class="d-none d-md-none d-lg-block" width="200px" class="bg-img" style="position: absolute; 
+        margin-top: 40px; margin-left: 900px; opacity: 0.75;">
+    </main>
+    <footer class="fixed-bottom">
+        <p><img src="assets/images/logo (3).png" width="30px">
+            Uganda National Anthem</p>
+        <p>&copy;JoelDev 2026. All rights reserved. | Proudly Ugandan | <a
+                href="https://wa.me/256708973632?">Contact</a>
+        </p>
+    </footer>
+</body>
+<script src="assets/bootstrap.js"></script>
+<script src="assets/bootstrap.bundle.min.js"></script>
+<script>
+    const audio = document.getElementById("audio");
+    const btn = document.getElementById("playBtn");
+    const icon = document.getElementById("icon")
+
+    btn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            icon.src = "assets/images/Pause.png";
+        } else {
+            audio.pause();
+            icon.src = "assets/images/Play.png";
+        }
+    });
+</script>
+
+</html>

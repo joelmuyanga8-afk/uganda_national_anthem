@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Anthem</title>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark py-0" style="z-index: 100;">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo (1).png"> </a>
+                <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span></button>
+                <div class="offcanvas offcanvas-bottom " id="navbarContent">
+                    <div class="offcanvas-header">
+                        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item d-none d-md-none d-lg-block">
+                                <a class="nav-link text-black" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item d-none d-md-none d-lg-block">
+                                <a class="nav-link text-black"
+                                    href="https://sites.google.com/view/uganda-national-anthem-app">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item d-block d-md-block d-lg-none">
+                                <a class="nav-link text-black" href="index.html"><img src="assets/images/home.png"
+                                        width="20px"> Home</a>
+                            </li>
+                            <li class="nav-item d-block d-md-block d-lg-none">
+                                <a class="nav-link text-black"
+                                    href="https://sites.google.com/view/uganda-national-anthem-app">
+                                    <img src="assets/images/prvcy.png" width="20px"> Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-sing">
+        <img src="assets/images/uganda_flag2.png" width="500px" class="d-none d-md-none d-lg-block"
+            style="margin-top: -10px; position: absolute; opacity: 0.4;">
+        <img src="assets/images/uganda_flag2.png" width="300px" class="d-block d-md-block d-lg-none"
+            style="margin-top: -10px; position: absolute; opacity: 0.2;">
+        <audio id="audio" src="assets/audio/Uganda National Anthem.mp3"></audio>
+
+        <div id="lyrics-container">
+            <!-- Lyrics will be show up here. -->
+        </div>
+
+        <div class="btns-sing">
+            <button onclick="playSong()">Play</button>
+            <button onclick="pauseSong()">Pause</button>
+            <button onclick="replaySong()">Replay</button>
+        </div>
+    </main>
+    <footer class="fixed-bottom">
+        <p><img src="assets/images/logo (3).png" width="30px">
+            Uganda National Anthem</p>
+        <p>&copy;JoelDev 2026. All rights reserved. | Proudly Ugandan | <a
+                href="https://wa.me/256708973632?">Contact</a>
+    </footer>
+</body>
+<script src="assets/bootstrap.js"></script>
+<script src="assets/bootstrap.bundle.min.js"></script>
+<script>
+    const audio = document.getElementById("audio");
+    const container = document.getElementById("lyrics-container");
+
+    const lyrics = [
+        { text: "Oh Uganda! May God uphold thee", start: 5, end: 13 },
+        { text: "We lay our future in thy hand", start: 13, end: 21 },
+        { text: "United free for liberty", start: 21, end: 28 },
+        { text: "Together we'll always stand.", start: 28, end: 35 },
+        { text: "Oh, Uganda! The land of freedom", start: 35, end: 44 },
+        { text: "Our love and labour we give", start: 44, end: 51 },
+        { text: "And with neighbours all", start: 51, end: 55 },
+        { text: "At our country's call", start: 55, end: 58 },
+        { text: "In peace and friendship we'll live", start: 58, end: 67 },
+        { text: "Oh, Uganda! The land that feeds us", start: 67, end: 74 },
+        { text: "By sun and fertile soil grown", start: 74, end: 81 },
+        { text: "For our own dear land", start: 81, end: 85 },
+        { text: "We shall always stand", start: 85, end: 88 },
+        { text: "The Pearl of Africa's Crown ", start: 88, end: 97 },
+    ];
+
+    let currentLine = -1;
+
+    // render lyrics
+    lyrics.forEach((line, index) => {
+        const div = document.createElement("div");
+        div.classList.add("line");
+        div.innerText = line.text;
+        div.id = "line-" + index;
+        container.appendChild(div);
+    });
+
+    // sync with audio
+    audio.addEventListener("timeupdate", () => {
+        const time = audio.currentTime;
+
+        lyrics.forEach((line, index) => {
+            if (time >= line.start && time < line.end) {
+                if (currentLine !== index) {
+                    updateActiveLine(index);
+                }
+            }
+        });
+    });
+
+    function updateActiveLine(index) {
+        if (currentLine !== -1) {
+            document.getElementById("line-" + currentLine).classList.remove("active");
+        }
+
+        currentLine = index;
+
+        const el = document.getElementById("line-" + index);
+        el.classList.add("active");
+
+        // smooth scroll
+        el.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+
+    // controls
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function replaySong() {
+        audio.currentTime = 0;
+        audio.play();
+    }
+</script>
+
+</html>
